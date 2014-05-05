@@ -1,0 +1,49 @@
+[user]
+	name = Adrian Maceiras
+	email = amaceiras@rmn.com
+[push]
+	default = tracking
+[merge]
+  	keepBackup = false
+  	tool = p4merge
+[mergetool]
+  	keepTemporaries = false
+  	keepBackup = false
+  	prompt = false
+[diff]
+[core]
+	editor = subl -w
+[branch]
+	autosetuprebase = always
+[alias]
+	st = status -sb
+	co = checkout
+	cb = checkout -b
+	b  = branch
+	ba = branch -a
+	br = !sh -c 'git branch -vv | sed "s/].*/]/"' -
+	pr = remote prune origin
+	so = remote show origin
+	cp = cherry-pick
+	l = log --pretty=format:'%C(red)%h%Creset - %C(yellow)%s %Creset%C(green)(%an) %Creset%C(cyan)%ar%Creset' --no-merges
+	lr = log --pretty=format:'%C(red)%h%Creset - %C(yellow)%s %Creset%C(green)(%an) %Creset%C(cyan)%ar%Creset' --reverse
+	ls = log --stat=,80 --pretty=format:'%C(red)%h%Creset - %C(yellow)%s %Creset%C(green)(%an) %Creset%C(cyan)%ar%Creset' --no-merges
+	lg = log --graph --pretty=format:'%C(red)%h%Creset - %C(yellow)%s %Creset%C(green)(%an) %Creset%C(cyan)%ar%Creset'
+	lc = log -1 --pretty=format:'%C(red)%h%Creset - %C(yellow)%s %Creset%C(green)(%an) %Creset%C(cyan)%ar%Creset'
+	la = log -6 --pretty=format:'%C(red)%h%Creset - %C(yellow)%s %Creset%C(green)(%an) %Creset%C(cyan)%ar%Creset'
+	lga = log --graph -10 --pretty=format:'%C(red)%h%Creset - %C(yellow)%s %Creset%C(green)(%an) %Creset%C(cyan)%ar%Creset'
+	lgfp = log --graph --first-parent --pretty=format:'%C(red)%h%Creset - %C(yellow)%s %Creset%C(green)(%an) %Creset%C(cyan)%ar%Creset'
+	d = diff -w
+	dc = diff -w --cached
+	df = !sh -c 'git d $1^! -- $2' -
+	ds = diff -w --stat=,80
+	dsc = diff -w --stat=,80 --cached
+	dsf = !sh -c 'git ds $1^!' -
+	dr = !sh -c 'git d `cat .git/rebase-merge/stopped-sha`^! -- $1' -
+	rc = !sh -c 'git add . && git rebase --continue' -
+	up = !sh -c 'git fetch && git rebase -p && git new' -
+	out = push
+	new = !sh -c 'git ls $1@{1}..$1@{0} \"$@\"' -
+	nd = !sh -c 'git ds $1@{1}..$1@{0} \"$@\"' -
+	rmd = !sh -c 'git rm $(git ls-files --deleted)' -
+

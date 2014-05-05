@@ -1,0 +1,1 @@
+/Users/amaceiras/.zprezto/runcoms/zlogin

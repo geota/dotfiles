@@ -1,0 +1,86 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+#ZSH_THEME="dallas"
+ZSH_THEME="sunrise"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Uncomment this to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git brew sublime autojump bundler capistrano colorize colored-man cp copydir copyfile django git-extras github history jira pip python compleat fabric history-substring-search osx)
+
+source $ZSH/oh-my-zsh.sh
+
+# Adjusted /usr/local/bin to proceed PATH b/c python2.7 was not resolving correctly
+# Prepended /usr/local/mysql/bin from https://wiki.whalesharkmedia.com/pages/viewpage.action?pageId=6033314
+export PATH=/Users/amaceiras/bin/:/usr/local/bin:/usr/local/mysql/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
+
+# vertica cli connect alias
+alias vsqlprod="/opt/vertica/bin/vsql -h vertica.rmn.com -U rmn_amaceiras"
+
+# make virtual env alias
+alias mkve='mkvirtualenv -p /usr/local/bin/python2.7'
+
+# command completion
+export PYTHONSTARTUP=$HOME/.pythonrc.py
+
+# set default editor to ST
+export EDITOR='subl -w'
+
+# enable autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+# virtualenv wrapper setup
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]
+then
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
+
+# setup mysql
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
+
+# for autjump
+autoload -U compinit && compinit
+export AUTOJUMP_IGNORE_CASE=1
+
+alias diffmerge="/Applications/DiffMerge.app/Contents/MacOS/diffmerge"
+
+alias sshgcprod="ssh ec2-54-235-65-0.compute-1.amazonaws.com"
+alias sshgcstage="ssh ec2-54-235-206-88.compute-1.amazonaws.com"
+alias sshgcdev="ssh ec2-184-72-248-140.compute-1.amazonaws.com"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

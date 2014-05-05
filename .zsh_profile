@@ -1,0 +1,7 @@
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]
+then 
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
+
+# setup mysql 
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
