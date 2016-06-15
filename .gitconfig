@@ -2,20 +2,36 @@
 	name = Adrian Maceiras
 	email = amaceiras@rmn.com
 [push]
-	default = tracking
-[merge]
-  	keepBackup = false
-  	tool = p4merge
-[mergetool]
-  	keepTemporaries = false
-  	keepBackup = false
-  	prompt = false
-[diff]
+#	default = tracking
+	default = simple
 [core]
-	editor = subl -w
+	editor = atom --wait
+	filemode = true
+	ignorecase = true
+	pager = less -R
+	quotepath = false
+	safecrlf = warn
+	whitespace = trailing-space,space-before-tab
+	excludesfile = .gitignore_local
+[color]
+	ui = auto
 [branch]
 	autosetuprebase = always
+[status]
+    showUntrackedFiles = all
 [alias]
+        aa = add --all
+        ci = commit
+        pur = pull --rebase
+        ri = rebase --interactive --autosquash
+        report = log --pretty=format:'%h %ai %cn \n - %s'
+        rs = reset --soft
+        rh = reset --hard
+        rv = remote -v
+        st = status -s -u
+        sync = !git pull --rebase upstream master && git push -u origin +HEAD
+        unstage = reset HEAD --
+	who = shortlog -s --
 	st = status -sb
 	co = checkout
 	cb = checkout -b
@@ -46,4 +62,38 @@
 	new = !sh -c 'git ls $1@{1}..$1@{0} \"$@\"' -
 	nd = !sh -c 'git ds $1@{1}..$1@{0} \"$@\"' -
 	rmd = !sh -c 'git rm $(git ls-files --deleted)' -
-
+[rerere]
+	enabled = 1
+# [mergetool "Kaleidoscope"]
+# 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+# 	trustexitcode = true
+# [merge]
+# 	tool = Kaleidoscope
+# 	state = true
+# 	conflictstyle = diff3
+# [difftool "Kaleidoscope"]
+# 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+# [difftool]
+# 	prompt = false
+# [mergetool]
+# 	keepTemporaries = false
+# 	keepBackup = false
+# 	prompt = false
+# [diff]
+# 	tool = Kaleidoscope
+# 	
+[diff]
+	tool = bc3
+[difftool]
+	prompt = false
+[difftool "bcomp"]
+	trustExitCode = true
+	cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE"
+[merge]
+	tool = bc3
+[mergetool]
+	prompt = false
+	bc3 = trustExitCode
+[mergetool "bcomp"]
+	trustExitCode = true
+	cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"

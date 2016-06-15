@@ -1,0 +1,49 @@
+USE_TMUX=1
+USE_SCREEN=0
+USE_LOCAL=1
+
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  # This fragment starts screen/tmux when you ssh to a remote machine and edits the .screenrc above to set the title bar to the color matching the prompt:
+  if [ $USE_TMUX ] && [ ! $SSH_TTY ]; then
+      if [ ! $TMUX ]; then
+          if [ $SSH_TTY ] || [ $USE_LOCAL ]; then
+              TMUXLIST=$(tmux ls | grep "attached")
+              if [ -z "$TMUXLIST" ]; then
+                tmux -u
+              elif [ "`echo "$TMUXLIST" | wc -l `" -eq "1" ]; then
+              tmux attach 
+            else
+              tmux ls
+              echo -e "tmux is already running and attached:\n ${TMUXLIST}"
+           fi
+        fi
+    fi
+  fi
+elif [ $USE_SCREEN ] || [ $SSH_TTY ]; then
+    if [ ! $WINDOW ]; then
+        if [ $SSH_TTY ] || [ $USE_LOCAL ]; then
+          perl -p -i -e "s/{= wk}/{= $SCREEN_COLOR}/" ~/.screenrc
+          SCREENLIST=$(screen -ls | grep 'Attached')
+          if [ -z "$SCREENLIST" ]; then
+            screen -U -R
+          # re-attach if we only have one screen, force detach others
+          elif [ "`echo "$SCREENLIST" | wc -l `" -eq "1" ]; then
+            screen -U -d -RR
+          else
+            screen -ls
+            echo -e "screen is already running and attached:\n ${SCREENLIST}"
+          fi
+        fi
+    fi
+fi
+
+if [ -n "$ZSH_VERSION" ]; then
+    if [[ -s "$HOME/.adrian.rc.zsh" ]]; then
+      source "$HOME/.adrian.rc.zsh"
+    fi
+elif [ -n "$BASH_VERSION" ]; then
+    if [[ -s "$HOME/.adrian.rc.bash" ]]; then
+      source "$HOME/.adrian.rc.bash"
+    fi
+fi

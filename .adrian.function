@@ -1,0 +1,57 @@
+format_json() {
+  pbpaste | python -m json.tool | pbcopy
+}
+
+mygrants()
+{
+    mysql -B -N $@ -e "SELECT DISTINCT CONCAT(
+        'SHOW GRANTS FOR \'', user, '\'@\'', host, '\';'
+            ) AS query FROM mysql.user" | \
+              mysql $@ | \
+                sed 's/\(GRANT .*\)/\1;/;s/^\(Grants for .*\)/## \1 ##/;/##/{x;p;x;}'
+}
+
+ssh_through_perimeter() {
+    perimeter=$1
+    if [ -n "$2" ]; then
+        hosts=$(ssh "$perimeter" perl -ne "'@a=split(); print \$a[1].\"\n\" if m/$2/'" /etc/hosts | sort )
+        if [ -z "$hosts" ]; then
+            echo "No hosts matching $2 found"
+        elif [ $(echo "$hosts" | wc -l) -gt 1 ]; then
+            last=$(echo "$hosts" | tail -n 1)
+            echo "Multiple hosts found:"
+            echo "$hosts"
+            echo "Using $last"
+            ssh "$last"
+        else
+            ssh "$hosts"
+        fi
+    else
+        ssh "$perimeter"
+    fi
+}
+
+pc() {
+    if [ $# -eq 0 ]
+    then
+        /Applications/PyCharm.app/Contents/MacOS/pycharm $(greadlink -f .) &
+    else
+        /Applications/PyCharm.app/Contents/MacOS/pycharm $(greadlink -f $1) &
+    fi
+    return 0
+}
+
+function set_jdk() {
+  if [ $# -ne 0 ]; then
+   removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
+   if [ -n "${JAVA_HOME+x}" ]; then
+    removeFromPath $JAVA_HOME
+   fi
+   export JAVA_HOME=`/usr/libexec/java_home -v $@`
+   export PATH=$JAVA_HOME/bin:$PATH
+  fi
+ }
+
+function remove_from_path() {
+  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+ }
