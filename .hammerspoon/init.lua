@@ -36,8 +36,8 @@ local headphoneDevice = "Headphones"
 local speakerDevice = "Internal Speakers"
 
 -- Defines for WiFi watcher
-local homeSSID = "tsunani" -- My home WiFi SSID
-local workSSID = "RMN_Office" -- My home WiFi SSID
+local homeSSID = "firenado" -- My home WiFi SSID
+local workSSID = "PGBG00123" -- My home WiFi SSID
 local lastSSID = hs.wifi.currentNetwork()
 
 -- Defines for screen watcher
@@ -70,7 +70,8 @@ local frameCache = {}
 --   Format reminder:
 --     {"App name", "Window name", "Display Name", "unitrect", "framerect", "fullframerect"},
 
-local iTunesMiniPlayerLayout = {"MiniPlayer", nil, display_monitor_1, nil, nil, nil}
+hs.application.enableSpotlightForNameSearches(true)
+
 
 local internal_display = {
     {"Atom",               nil,          display_laptop, hs.layout.left25, nil, nil},
@@ -87,7 +88,7 @@ local tri_display = {
     {"iTerm2",           nil,           display_laptop, hs.layout.maximized,   nil, nil},
     {"Atom",              nil,          display_monitor_1,  hs.layout.maximized, nil, nil},
     {"Google Chrome",     nil,          display_monitor_2, hs.layout.right75,    nil, nil},
-    {"HipChat",           nil,          display_monitor_2, hs.layout.left25,   nil, nil}
+    {"Slack",           nil,          display_monitor_2, hs.layout.left25,   nil, nil}
 }
 
 
@@ -249,16 +250,6 @@ function applicationWatcher(appName, eventType, appObject)
         if (appName == "Finder") then
             -- Bring all Finder windows forward when one gets activated
             appObject:selectMenuItem({"Window", "Bring All to Front"})
-        elseif (appName == "iTunes") then
-            -- Ensure the MiniPlayer window is visible and correctly placed, since it likes to hide an awful lot
-            state = appObject:findMenuItem({"Window", "MiniPlayer"})
-            if state and not state["ticked"] then
-                appObject:selectMenuItem({"Window", "MiniPlayer"})
-            end
-            _animationDuration = hs.window.animationDuration
-            hs.window.animationDuration = 0
-            hs.layout.apply({ iTunesMiniPlayerLayout })
-            hs.window.animationDuration = _animationDuration
         end
     end
 end

@@ -1,11 +1,16 @@
 [user]
-	name = Adrian Maceiras
-	email = amaceiras@rmn.com
+  name = Adrian Maceiras
+  email = amac425@gmail.com
 [push]
-#	default = tracking
-	default = simple
+	default = tracking
+[pack]
+  deltaCacheSize = 2047m
+  packSizeLimit = 2047m
+  windowMemory = 2047m
 [core]
-	editor = atom --wait
+  packedGitLimit = 512m
+  packedGitWindowSize = 512m
+  editor = atom --wait
 	filemode = true
 	ignorecase = true
 	pager = less -R
@@ -13,6 +18,8 @@
 	safecrlf = warn
 	whitespace = trailing-space,space-before-tab
 	excludesfile = .gitignore_local
+	autocrlf = input
+	compression = 9
 [color]
 	ui = auto
 [branch]
@@ -20,17 +27,17 @@
 [status]
     showUntrackedFiles = all
 [alias]
-        aa = add --all
-        ci = commit
-        pur = pull --rebase
-        ri = rebase --interactive --autosquash
-        report = log --pretty=format:'%h %ai %cn \n - %s'
-        rs = reset --soft
-        rh = reset --hard
-        rv = remote -v
-        st = status -s -u
-        sync = !git pull --rebase upstream master && git push -u origin +HEAD
-        unstage = reset HEAD --
+  aa = add --all
+  ci = commit
+  pur = pull --rebase
+  ri = rebase --interactive --autosquash
+  report = log --pretty=format:'%h %ai %cn \n - %s'
+  rs = reset --soft
+  rh = reset --hard
+  rv = remote -v
+  st = status -s -u
+  sync = !git pull --rebase upstream master && git push -u origin +HEAD
+  unstage = reset HEAD --
 	who = shortlog -s --
 	st = status -sb
 	co = checkout
@@ -58,42 +65,25 @@
 	dr = !sh -c 'git d `cat .git/rebase-merge/stopped-sha`^! -- $1' -
 	rc = !sh -c 'git add . && git rebase --continue' -
 	up = !sh -c 'git fetch && git rebase -p && git new' -
-	out = push
 	new = !sh -c 'git ls $1@{1}..$1@{0} \"$@\"' -
 	nd = !sh -c 'git ds $1@{1}..$1@{0} \"$@\"' -
 	rmd = !sh -c 'git rm $(git ls-files --deleted)' -
 [rerere]
 	enabled = 1
-# [mergetool "Kaleidoscope"]
-# 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-# 	trustexitcode = true
-# [merge]
-# 	tool = Kaleidoscope
-# 	state = true
-# 	conflictstyle = diff3
-# [difftool "Kaleidoscope"]
-# 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-# [difftool]
-# 	prompt = false
-# [mergetool]
-# 	keepTemporaries = false
-# 	keepBackup = false
-# 	prompt = false
-# [diff]
-# 	tool = Kaleidoscope
-# 	
+[diff "sopsdiffer"]
+	textconv = sops -d
 [diff]
 	tool = bc3
-[difftool]
-	prompt = false
-[difftool "bcomp"]
-	trustExitCode = true
-	cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE"
 [merge]
 	tool = bc3
-[mergetool]
-	prompt = false
-	bc3 = trustExitCode
-[mergetool "bcomp"]
+[mergetool "bc3"]
 	trustExitCode = true
-	cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[credential]
+	helper = store
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
