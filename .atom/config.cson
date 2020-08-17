@@ -1,0 +1,15 @@
+"*":
+  core:
+    disabledPackages: [
+      "language-hcl"
+    ]
+    excludeVcsIgnoredPaths: false
+    telemetryConsent: "no"
+  editor: {}
+  "exception-reporting":
+    userId: "4b8f0b1e-6990-4ab7-8d57-9d27206d62a9"
+  latex:
+    engine: "xelatex"
+  "tree-view": {}
+  welcome:
+    showOnStartup: false

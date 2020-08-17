@@ -1,0 +1,48 @@
+{
+  "_from": "https://www.atom.io/api/packages/language-terraform/versions/0.9.3/tarball",
+  "_id": "language-terraform@0.9.3",
+  "_inBundle": false,
+  "_integrity": "sha512-aPt1mzc4r9hFJ7hzvWpuE/XEeRstmbU6/NA0dnVaEirldBJQriME4cOwAOg7eQHhr76T8j9nS7D9I/mHMfQLEg==",
+  "_location": "/language-terraform",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/language-terraform/versions/0.9.3/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/language-terraform/versions/0.9.3/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/language-terraform/versions/0.9.3/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/language-terraform/versions/0.9.3/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/language-terraform/versions/0.9.3/tarball",
+  "_shasum": "93370fd79e262d30ac49c88ed50f5525898cf0ea",
+  "_spec": "https://www.atom.io/api/packages/language-terraform/versions/0.9.3/tarball",
+  "_where": "/private/var/folders/6k/x29hpgnj3sn_gbvvyxfqxzr8tbm962/T/apm-install-dir-120413-29976-2e9l70.lzz82",
+  "bugs": {
+    "url": "https://github.com/cmur2/language-terraform/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Terraform.io support for Atom",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "homepage": "https://github.com/cmur2/language-terraform",
+  "keywords": [
+    "language",
+    "grammar",
+    "terraform",
+    "terraform-0-12",
+    "configuration"
+  ],
+  "license": "MIT",
+  "name": "language-terraform",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmur2/language-terraform.git"
+  },
+  "version": "0.9.3"
+}

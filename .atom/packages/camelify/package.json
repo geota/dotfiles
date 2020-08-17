@@ -1,0 +1,53 @@
+{
+  "_from": "https://www.atom.io/api/packages/camelify/versions/0.2.0/tarball",
+  "_id": "camelify@0.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-nVLGnQ7rragOl4TTL9cSKFBf3h1kDtzBbOWq2TLanloBmfqNQQzH9kRqgyVk9VcE9yQsfq3pYjQmmQawDrBxJA==",
+  "_location": "/camelify",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/camelify/versions/0.2.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/camelify/versions/0.2.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/camelify/versions/0.2.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/camelify/versions/0.2.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/camelify/versions/0.2.0/tarball",
+  "_shasum": "29024825f65d792542b9d2773aade269e0530f2d",
+  "_spec": "https://www.atom.io/api/packages/camelify/versions/0.2.0/tarball",
+  "_where": "/private/var/folders/6k/x29hpgnj3sn_gbvvyxfqxzr8tbm962/T/apm-install-dir-119924-91191-uba04e.zgm7",
+  "activationCommands": {
+    "atom-workspace": "camelify:convert"
+  },
+  "author": {
+    "name": "Void Graphics",
+    "url": "Adrien Leloup"
+  },
+  "bugs": {
+    "url": "https://github.com/voidgraphics/camelify/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Atom package to convert a string to camelCase.",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/voidgraphics/camelify#readme",
+  "keywords": [
+    "Camelify",
+    "camelCase"
+  ],
+  "license": "MIT",
+  "main": "./lib/camelify",
+  "name": "camelify",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voidgraphics/camelify.git"
+  },
+  "version": "0.2.0"
+}

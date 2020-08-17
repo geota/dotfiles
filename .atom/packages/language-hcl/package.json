@@ -1,0 +1,44 @@
+{
+  "_from": "https://www.atom.io/api/packages/language-hcl/versions/0.4.0/tarball",
+  "_id": "language-hcl@0.4.0",
+  "_inBundle": false,
+  "_integrity": "sha512-xZbBD8rsSuEYyykywMCROlQ5MVw7CaHoW20D+BAS48H8mHYM7MxreGMlu62vN49+Bgizy9sYcLSPdqX4QXei7A==",
+  "_location": "/language-hcl",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/language-hcl/versions/0.4.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/language-hcl/versions/0.4.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/language-hcl/versions/0.4.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/language-hcl/versions/0.4.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/language-hcl/versions/0.4.0/tarball",
+  "_shasum": "b670968762a374cf50857704904caa48711e2c60",
+  "_spec": "https://www.atom.io/api/packages/language-hcl/versions/0.4.0/tarball",
+  "_where": "/private/var/folders/6k/x29hpgnj3sn_gbvvyxfqxzr8tbm962/T/apm-install-dir-11992-27049-bczpku.pcuj5",
+  "bugs": {
+    "url": "https://github.com/fd/language-hcl/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Syntax support for the HashiCorp Configuration Language",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "homepage": "https://github.com/fd/language-hcl#readme",
+  "keywords": [
+    "language",
+    "grammar"
+  ],
+  "license": "MIT",
+  "name": "language-hcl",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fd/language-hcl.git"
+  },
+  "version": "0.4.0"
+}

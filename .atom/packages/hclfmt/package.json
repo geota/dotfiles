@@ -1,0 +1,50 @@
+{
+  "_from": "https://www.atom.io/api/packages/hclfmt/versions/1.2.0/tarball",
+  "_id": "hclfmt@1.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-SPvSxQk+m97d8HIgau/dh8rE+XH2VlqrVDxWFulaFbHarlyZtL9w853x1e+hFw5tOyrd0LjXOYYmuaX7hjXVHw==",
+  "_location": "/hclfmt",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/hclfmt/versions/1.2.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/hclfmt/versions/1.2.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/hclfmt/versions/1.2.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/hclfmt/versions/1.2.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/hclfmt/versions/1.2.0/tarball",
+  "_shasum": "2fb40596bd048eb6f1621c4dcfa05be1fa369110",
+  "_spec": "https://www.atom.io/api/packages/hclfmt/versions/1.2.0/tarball",
+  "_where": "/private/var/folders/6k/x29hpgnj3sn_gbvvyxfqxzr8tbm962/T/apm-install-dir-11992-27163-ebleui.nuxbj",
+  "bugs": {
+    "url": "https://github.com/chrw/atom-hclfmt/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Format hcl source code with hclfmt",
+  "engines": {
+    "atom": ">=1.0.0"
+  },
+  "homepage": "https://github.com/chrw/atom-hclfmt#readme",
+  "keywords": [
+    "hcl",
+    "fmt",
+    "hclfmt"
+  ],
+  "license": "MIT",
+  "main": "./lib/hclfmt",
+  "name": "hclfmt",
+  "package-deps": [
+    "language-hcl"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrw/atom-hclfmt.git"
+  },
+  "version": "1.2.0"
+}
